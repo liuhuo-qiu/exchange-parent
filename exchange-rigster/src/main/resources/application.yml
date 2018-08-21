@@ -1,0 +1,27 @@
+#应用容器配置
+server:
+  port: 12302
+#配置中心配置
+spring:
+  application:
+    name: exchange-rigster
+  profiles:
+    active: dev
+#日志配置
+logging:
+  level:
+    root: info
+
+#注册中心配置
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://hpx:hpx123456@localhost:12302/eureka/
+
+#项目配置
+security:
+  user:
+    name: hpx
+    password: hpx123456

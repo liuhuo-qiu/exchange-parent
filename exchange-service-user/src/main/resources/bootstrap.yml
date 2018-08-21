@@ -1,0 +1,23 @@
+#应用容器配置
+server:
+  port: 12303
+#注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://hpx:hpx123456@localhost:12302/eureka/
+#配置中心配置
+spring:
+  application:
+    name: exchange-service-user
+  profiles:
+    active: dev
+  cloud:
+    config:
+      name: ${spring.application.name},db,log4j,rabbitmq,redis
+      profile: ${spring.profiles.active}
+      discovery:
+        enabled: true
+        service-id: config-server
+      username: hpx_config
+      password: hpx123456
